@@ -1,0 +1,23 @@
+<div style="height: 100%; width: 100%;">
+	<map image-src="file | ngfDataUrl" coords="coords" angle="angle" scale="scale" set-coords="setCoords" set-angle="setAngle" set-scale="setScale"></map>
+</div>
+
+<div class="imagePanel">
+
+	<div class="coords" ng-if="coords">
+		<p>lat: {{coords.lat | toFixed:6}}</p>
+		<p>lng: {{coords.lng | toFixed:6}}</p>
+		<button class="btn btn-primary" ng-click="openSetCoordsDialog()">Set coords</button>
+	</div>
+	<div class="coords" ng-if="coords">
+		<p>angle: {{angle | toDeg | toFixed:2}}</p>
+		<button class="btn btn-primary" ng-click="openSetAngleDialog()">Set angle</button>
+	</div>
+	<div class="coords" ng-if="coords">
+		<p>scale: {{scale | toFixed:2}}</p>
+		<button class="btn btn-primary" ng-click="openSetScaleDialog()">Set scale</button>
+	</div>		
+
+	<button ng-hide="file" class="btn btn-primary" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="20MB" ngf-change="upload()">Load image</button>
+
+</div>
